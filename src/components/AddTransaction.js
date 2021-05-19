@@ -25,23 +25,23 @@ export const AddTransaction = () => {
         <div>
             <form onSubmit={handleSubmit} >
                 <div className="form-group">
-                <label className="form-group mx-sm-3 mb-2" for="name">
+                <label className="form-group mx-sm-3 mb-2" htmlFor="source">
                     Source</label>
-                    <input type="text" placeholder="Enter Source" class="form-control" value={name} id="name" onChange= {e => setName(e.target.value)} name="Name" />
+                    <input type="text" placeholder="Enter Source" aria-label="source" className="form-control" value={name} id="name" onChange= {e => setName(e.target.value)} name="Name" />
                 </div>
                 <div className="form-group">
-                 <label className="form-group mx-sm-3 mb-2" for="inputAmout">
+                 <label className="form-group mx-sm-3 mb-2" htmlFor="inputAmout">
                     Amount:</label>
-                    <input type="text"  class="form-control" value={amount} id="inputAmount"onChange= {e => setAmount(e.target.value)} name="Amount" />                
+                    <input type="text" aria-label="amount" className="form-control" value={amount} id="inputAmount"onChange= {e => setAmount(e.target.value)} name="Amount" />                
                 </div>
                 <div className="form-group">
                     <label className="form-group mx-sm-3 mb-2">Type</label>
-                    <select class="form-control" value={typeValue} onChange={e => setTypeValue(e.target.value)}>
+                    <select className="form-control" aria-label="type" value={typeValue} onChange={e => setTypeValue(e.target.value)}>
                         <option value="y">Income</option>
                         <option value="n">Expense</option>
                     </select>
                </div>
-                <button className="btn btn-primary" type="submit">Add Transection</button>
+                <button className="btn btn-primary" aria-label="Add transaction" type="submit">Add Transection</button>
             </form>
         </div>
     )

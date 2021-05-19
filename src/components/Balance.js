@@ -21,16 +21,16 @@ export const Balance = () => {
                 <h6>Rs.<span className="h1">{income - expense}</span></h6>
             </div>
             <div className="row">
-                <div class="col-sm-6 text-center">
-                    <div class="card">
-                    <div class="card-body bg-success text-white">
+                <div className="col-sm-6 text-center">
+                    <div className="card">
+                    <div className="card-body bg-success text-white">
                         Your Income: Rs.<span className="h2">+{income}</span>
                     </div>
                     </div>
                 </div>
-                <div class="col-sm-6 text-center">
-                    <div class="card">
-                    <div class="card-body bg-danger text-white">
+                <div className="col-sm-6 text-center">
+                    <div className="card">
+                    <div className="card-body bg-danger text-white">
                         Your Expense: Rs.<span className="h2">-{expense}</span>
                     </div>
                     </div>
