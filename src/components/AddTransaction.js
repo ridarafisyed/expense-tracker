@@ -1,47 +1,48 @@
-import React ,{useState, useContext} from 'react'
-import {GlobalContext} from "../context/GlobalState"
+import React, { useContext, useState } from 'react'
+import {GlobalContext} from '../context/GlobalState'
 
 export const AddTransaction = () => {
-    // for input type
     const [amount, setAmount] = useState(0);
-    const [name, setName] = useState(" Enter Source");
-    const [typeValue, setTypeValue] = useState("y");
-
-    const { addTransaction } = useContext(GlobalContext);
+    const [source, setSource] = useState(" Enter Source ")
+    const [isIncome, setIsIncome] = useState("y");
+    
+     const { addTransaction } = useContext(GlobalContext);
 
     //    when user submit the form the data will store into the array object
     const handleSubmit = (e) => {
         e.preventDefault();
         const newTransaction = {
             id: Date.now(),            
-            isIncome: typeValue,
-            text:name,
+            isIncome: isIncome,
+            source:source,
             transaction:parseFloat(amount),
         }
     
         addTransaction(newTransaction);    
 }; 
     return (
-        <div>
-            <form onSubmit={handleSubmit} >
-                <div className="form-group">
-                <label className="form-group mx-sm-3 mb-2" htmlFor="source">
-                    Source</label>
-                    <input type="text" placeholder="Enter Source" aria-label="source" className="form-control" value={name} id="name" onChange= {e => setName(e.target.value)} name="Name" />
+        <div className="container text-center">
+            <form onSubmit={handleSubmit}>
+                <div className ="form-group">
+                    <label className="form-group mx-sm-3 mb-2" htmlFor="Source">Source</label>
+                    <input type="text" placeholder="Enter Source" aria-label="source" className="form-control" value={source}
+                    onChange={ e => setSource(e.target.value)} id="source"/>
                 </div>
-                <div className="form-group">
-                 <label className="form-group mx-sm-3 mb-2" htmlFor="inputAmout">
-                    Amount:</label>
-                    <input type="text" aria-label="amount" className="form-control" value={amount} id="inputAmount"onChange= {e => setAmount(e.target.value)} name="Amount" />                
+
+                <div className ="form-group">
+                    <label className="form-group mx-sm-3 mb-2" htmlFor="amount">Amount</label>
+                    <input type="text" aria-label="amount" className="form-control" value={amount}
+                    onChange={ e => setAmount(e.target.value)} id="amount"/>
                 </div>
-                <div className="form-group">
+
+                <div className ="form-group">
                     <label className="form-group mx-sm-3 mb-2">Type</label>
-                    <select className="form-control" aria-label="type" value={typeValue} onChange={e => setTypeValue(e.target.value)}>
-                        <option value="y">Income</option>
-                        <option value="n">Expense</option>
+                    <select className="form-control" aria-label="type" value={isIncome} onChange={e =>setIsIncome(e.target.value)} >
+                        <option value="y">Income</option><option value="n">Expense</option>
                     </select>
-               </div>
-                <button className="btn btn-primary" aria-label="Add transaction" type="submit">Add Transection</button>
+                </div>
+
+                <button className="btn btn-primary mx-sm-3 mb-2 center" aria-label="Add Transaction"  type="submit">Add Transaction</button>
             </form>
         </div>
     )

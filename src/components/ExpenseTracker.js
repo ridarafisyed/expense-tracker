@@ -1,23 +1,17 @@
 import React from 'react'
-
-import { AddTransaction } from './AddTransaction';
-import { Balance } from './Balance';
-import { TransactionList } from './TransactionList';
-
-
-
+import { AddTransaction } from './AddTransaction'
+import { Balance } from './Balance'
+import { TransactionList } from './TransactionList'
 
 export const ExpenseTracker = () => {
-  
     return (
-        <div>
+        <div className="container">
+            
+          
             <Balance/>
-            <div>
-               <AddTransaction/>
-            </div>
-             <ul>
-               <TransactionList/>          
-            </ul>
+            
+            <AddTransaction/>
+            <TransactionList/>
         </div>
     )
 }
